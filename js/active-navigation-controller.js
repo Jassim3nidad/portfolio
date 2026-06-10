@@ -20,9 +20,22 @@ class ActiveNavigationController {
   init() {
     this.sections = this.dom.getAll(this.sectionSelector);
     this.navLinks = this.dom.getAll(this.linkSelector);
+    this.sectionOffsets = [];
+    this.cacheOffsets();
     this.updateActiveLink();
 
     window.addEventListener('scroll', () => this.updateActiveLink(), { passive: true });
+    window.addEventListener('resize', () => {
+      this.cacheOffsets();
+      this.updateActiveLink();
+    }, { passive: true });
+  }
+
+  cacheOffsets() {
+    this.sectionOffsets = this.sections.map(section => ({
+      id: section.id,
+      offsetTop: section.offsetTop
+    }));
   }
 
   updateActiveLink() {
@@ -36,9 +49,10 @@ class ActiveNavigationController {
 
   getCurrentSectionId() {
     let currentSectionId = '';
+    const scrollY = window.scrollY;
 
-    this.sections.forEach(section => {
-      if (window.scrollY >= section.offsetTop - this.scrollOffset) {
+    this.sectionOffsets.forEach(section => {
+      if (scrollY >= section.offsetTop - this.scrollOffset) {
         currentSectionId = section.id;
       }
     });
