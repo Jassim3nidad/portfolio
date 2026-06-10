@@ -15,20 +15,20 @@ class ActiveNavigationController {
     this.scrollOffset = scrollOffset;
     this.sections = [];
     this.navLinks = [];
+    this.sectionOffsets = [];
   }
 
   init() {
     this.sections = this.dom.getAll(this.sectionSelector);
     this.navLinks = this.dom.getAll(this.linkSelector);
-    this.sectionOffsets = [];
+    
+    // Cache section offsets on init, load, and resize
     this.cacheOffsets();
-    this.updateActiveLink();
+    window.addEventListener('resize', () => this.cacheOffsets(), { passive: true });
+    window.addEventListener('load', () => this.cacheOffsets(), { passive: true });
 
+    this.updateActiveLink();
     window.addEventListener('scroll', () => this.updateActiveLink(), { passive: true });
-    window.addEventListener('resize', () => {
-      this.cacheOffsets();
-      this.updateActiveLink();
-    }, { passive: true });
   }
 
   cacheOffsets() {
@@ -51,12 +51,14 @@ class ActiveNavigationController {
     let currentSectionId = '';
     const scrollY = window.scrollY;
 
-    this.sectionOffsets.forEach(section => {
+    for (let i = 0; i < this.sectionOffsets.length; i++) {
+      const section = this.sectionOffsets[i];
       if (scrollY >= section.offsetTop - this.scrollOffset) {
         currentSectionId = section.id;
       }
-    });
+    }
 
     return currentSectionId;
   }
 }
+

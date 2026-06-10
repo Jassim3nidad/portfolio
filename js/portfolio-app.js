@@ -4,6 +4,7 @@ class PortfolioApp {
     this.controllers = [
       new ScrollAnimationController({ dom: this.dom }),
       new ActiveNavigationController({ dom: this.dom }),
+      new SplinePerformanceController({ dom: this.dom }),
       new InteractiveConsole({ dom: this.dom }),
       new ProjectFilter({ dom: this.dom }),
       new PipelineModal({ dom: this.dom, triggerId: 'view-pipeline-btn', modalId: 'pipeline-modal' }),

@@ -35,6 +35,7 @@ class ScrollAnimationController {
     entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
         this.revealElement(entry.target, index);
+        this.observer.unobserve(entry.target);
       }
     });
   }
