@@ -69,6 +69,11 @@
     color: var(--text);
     text-decoration: none;
     letter-spacing: -0.02em;
+    display: inline-block;
+    transition: transform 0.2s ease;
+  }
+  .nav-logo:hover {
+    transform: scale(1.08);
   }
   .nav-logo span { color: var(--accent); }
 
@@ -84,9 +89,13 @@
     font-size: 0.875rem;
     font-weight: 400;
     letter-spacing: 0.02em;
-    transition: color 0.2s;
+    display: inline-block;
+    transition: color 0.2s, transform 0.2s ease;
   }
-  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover {
+    color: var(--text);
+    transform: scale(1.08);
+  }
 
   .nav-cta {
     background: var(--accent);
@@ -464,6 +473,12 @@
     position: relative;
     overflow: hidden;
   }
+  a.project-card {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
   .project-card::before {
     content: '';
     position: absolute;
@@ -581,6 +596,9 @@
   .zapier-card:hover {
     border-color: rgba(255,102,0,0.35);
     transform: translateY(-2px);
+  }
+  #view-lead-btn, #view-task-btn, #view-repurpose-btn, #view-autocrm-btn, #view-enrichment-btn, #view-zapier-nsk-btn {
+    cursor: pointer;
   }
 
   .zapier-icon {
@@ -1071,8 +1089,8 @@
     background: #0f0f15;
     border: 1px solid var(--border);
     border-radius: 16px;
-    width: 100%;
-    max-width: 960px;
+    width: 95%;
+    max-width: 1200px;
     max-height: 90vh;
     overflow-y: auto;
     box-shadow: 0 24px 64px rgba(124, 106, 247, 0.2);
@@ -1112,7 +1130,7 @@
   }
   .modal-content-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr;
     gap: 2rem;
     padding: 2rem;
   }
@@ -1123,19 +1141,19 @@
     background: rgba(0, 0, 0, 0.3);
     border-radius: 12px;
     border: 1px solid var(--border2);
-    padding: 1rem;
+    padding: 1.5rem;
     overflow: hidden;
   }
   .pipeline-diagram-img {
     max-width: 100%;
-    max-height: 100%;
+    max-height: 70vh;
     object-fit: contain;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     transition: transform 0.3s ease;
   }
   .pipeline-diagram-img:hover {
-    transform: scale(1.03);
+    transform: scale(1.01);
   }
   .modal-text-col {
     display: flex;
@@ -1151,9 +1169,9 @@
     margin-bottom: 0.5rem;
   }
   .pipeline-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
   }
   .pipeline-step {
     display: flex;
@@ -1359,20 +1377,16 @@
 
       <div class="about-stats">
         <div class="stat-card">
-          <div class="stat-number">14</div>
+          <div class="stat-number">10+</div>
           <div class="stat-label">GitHub repos</div>
         </div>
         <div class="stat-card">
           <div class="stat-number">5+</div>
           <div class="stat-label">Zapier automations</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" style="grid-column: span 2;">
           <div class="stat-number">5</div>
           <div class="stat-label">Cisco certifications</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">84%</div>
-          <div class="stat-label">NLP accuracy (VADER)</div>
         </div>
       </div>
     </div>
@@ -1507,7 +1521,7 @@
       </div>
     </div>
 
-    <div class="project-card fade-up" data-category="cybersecurity">
+    <a href="https://github.com/Mart271/ML-Enhanced-Intrusion-Detection" target="_blank" class="project-card fade-up" data-category="cybersecurity">
       <span class="project-tag tag-security">Cybersecurity</span>
       <div class="project-title">Cybersecurity ML Intrusion Detection System</div>
       <p class="project-desc">
@@ -1522,9 +1536,9 @@
         <span class="tech-badge">Network Security</span>
         <span class="tech-badge">UML</span>
       </div>
-    </div>
+    </a>
 
-    <div class="project-card fade-up" data-category="fullstack">
+    <a href="https://github.com/Jassim3nidad/anomaly-lab" target="_blank" class="project-card fade-up" data-category="fullstack">
       <span class="project-tag tag-web">Full-stack</span>
       <div class="project-title">Interactive AI Anomaly Detector</div>
       <p class="project-desc">
@@ -1539,9 +1553,9 @@
         <span class="tech-badge">Z-Score</span>
         <span class="tech-badge">REST API</span>
       </div>
-    </div>
+    </a>
 
-    <div class="project-card fade-up" data-category="fullstack">
+    <a href="https://github.com/Jassim3nidad/Sentiment-Analysis" target="_blank" class="project-card fade-up" data-category="fullstack">
       <span class="project-tag tag-web">Full-stack</span>
       <div class="project-title">Sentiment Analysis Web App</div>
       <p class="project-desc">
@@ -1555,12 +1569,9 @@
         <span class="tech-badge">Streamlit</span>
         <span class="tech-badge">User Interface</span>
       </div>
-      <div class="project-links">
-        <a href="https://github.com/Jassim3nidad/Sentiment-Analysis" target="_blank" class="project-link">Source</a>
-      </div>
-    </div>
+    </a>
 
-    <div class="project-card fade-up" data-category="automation">
+    <a href="#zapier" class="project-card fade-up" data-category="automation">
       <span class="project-tag tag-zapier">Automation</span>
       <div class="project-title">Zapier Automation Suite</div>
       <p class="project-desc">
@@ -1575,7 +1586,7 @@
         <span class="tech-badge">Webhooks</span>
         <span class="tech-badge">OpenAI</span>
       </div>
-    </div>
+    </a>
 
   </div>
 </section>
@@ -1591,7 +1602,7 @@
 
   <div class="zapier-grid">
 
-    <div class="zapier-card fade-up">
+    <div class="zapier-card fade-up" id="view-lead-btn">
       <div class="zapier-icon">📋</div>
       <div class="zapier-title">Never Miss a Lead Tracker</div>
       <p class="zapier-desc">
@@ -1608,24 +1619,23 @@
       <p class="zapier-why">Eliminates manual data entry and ensures fast responses while leads are still warm.</p>
     </div>
 
-    <div class="zapier-card fade-up">
+    <div class="zapier-card fade-up" id="view-task-btn">
       <div class="zapier-icon">🤖</div>
       <div class="zapier-title">AI-Powered Task Extractor</div>
       <p class="zapier-desc">
-        Starred or labeled emails are sent to ChatGPT, which extracts the core 
-        action item and creates a clean summarized task in Trello or Todoist 
-        automatically.
+        Starred or labeled emails are processed by Gemini via Google AI Studio to extract 
+        the core action items and automatically log them as clean tasks in Todoist.
       </p>
       <div class="project-tech" style="margin-bottom:0;">
         <span class="tech-badge">Gmail</span>
-        <span class="tech-badge">ChatGPT</span>
-        <span class="tech-badge">Trello</span>
+        <span class="tech-badge">Google AI Studio</span>
+        <span class="tech-badge">Gemini AI</span>
         <span class="tech-badge">Todoist</span>
       </div>
       <p class="zapier-why">Keeps inbox clean — action items never get buried in long email threads again.</p>
     </div>
 
-    <div class="zapier-card fade-up">
+    <div class="zapier-card fade-up" id="view-repurpose-btn">
       <div class="zapier-icon">📹</div>
       <div class="zapier-title">AI Content Repurposing Engine</div>
       <p class="zapier-desc">
@@ -1642,42 +1652,41 @@
       <p class="zapier-why">Turns a single media file into a full multi-platform marketing campaign on autopilot.</p>
     </div>
 
-    <div class="zapier-card fade-up">
+    <div class="zapier-card fade-up" id="view-autocrm-btn">
       <div class="zapier-icon">🏢</div>
-      <div class="zapier-title">AutoCRM: Client Pipeline Engine</div>
+      <div class="zapier-title">AutoCRM: Automated Client Pipeline</div>
       <p class="zapier-desc">
-        Monitors an Asana kanban board and executes 5 distinct workflows based 
-        on pipeline status: auto-onboarding, smart chaser sequences, welcome 
-        emails with AI personalization, and retention follow-ups.
+        A hands-off CRM engine built to scale digital agency operations. It uses Zapier to monitor an Asana kanban board and execute five distinct operational workflows based on the client's current pipeline status.
       </p>
       <div class="project-tech" style="margin-bottom:0;">
         <span class="tech-badge">Asana</span>
         <span class="tech-badge">Zapier Paths</span>
         <span class="tech-badge">Gmail</span>
         <span class="tech-badge">Google Drive</span>
-        <span class="tech-badge">AI</span>
+        <span class="tech-badge">Zapier AI</span>
+        <span class="tech-badge">Zapier Delays</span>
       </div>
       <p class="zapier-why">Zero manual busywork. Just triggers and conditional logic doing the heavy lifting.</p>
     </div>
 
-    <div class="zapier-card fade-up">
+    <div class="zapier-card fade-up" id="view-enrichment-btn">
       <div class="zapier-icon">🎯</div>
       <div class="zapier-title">Automated Lead Enrichment & Routing</div>
       <p class="zapier-desc">
-        Captures inbound leads, pulls external business data via webhook, scores 
-        by company size, then routes: high-priority leads get a Slack alert + 
-        AI-written pitch; low-priority go to automated email sequences.
+        This automated pipeline handles inbound leads from end to end. It captures inquiries from local shops, instantly pulls external company data, and scores the lead to determine the exact next action.
       </p>
       <div class="project-tech" style="margin-bottom:0;">
-        <span class="tech-badge">Webhook</span>
+        <span class="tech-badge">Youform</span>
+        <span class="tech-badge">Webhooks</span>
         <span class="tech-badge">Slack</span>
-        <span class="tech-badge">AI Enrichment</span>
-        <span class="tech-badge">Email Sequences</span>
+        <span class="tech-badge">Google Sheets</span>
+        <span class="tech-badge">Zapier AI</span>
+        <span class="tech-badge">Gmail</span>
       </div>
       <p class="zapier-why">Instant qualification and automated outreach. Zero manual data entry.</p>
     </div>
 
-    <div class="zapier-card fade-up">
+    <div class="zapier-card fade-up" id="view-zapier-nsk-btn">
       <div class="zapier-icon">📅</div>
       <div class="zapier-title">No-Show Killer Booking Engine</div>
       <p class="zapier-desc">
@@ -1904,6 +1913,261 @@
             <div class="step-details">
               <h5>Semaphore SMS (PH SMS API)</h5>
               <p>The system sends a POST request to Semaphore. A confirmation text hits the client's phone immediately.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LEAD TRACKER MODAL -->
+<div id="lead-modal" class="modal-backdrop" aria-hidden="true">
+  <div class="modal-window">
+    <div class="modal-header">
+      <h3 class="modal-title">The "Never Miss a Lead" Tracker: Automation Pipeline</h3>
+      <button class="modal-close-btn" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="modal-content-grid">
+      <div class="modal-image-col">
+        <img src="lead-tracker-pipeline.png" alt="Zapier Lead Tracker Automation Pipeline Diagram" class="pipeline-diagram-img">
+      </div>
+      <div class="modal-text-col">
+        <h4 class="pipeline-subtitle">The Automation Pipeline</h4>
+        <div class="pipeline-steps">
+          <div class="pipeline-step">
+            <div class="step-num">1</div>
+            <div class="step-details">
+              <h5>Google Forms (New Response)</h5>
+              <p>A potential client submits an inquiry form. Zapier instantly captures the payload: name, contact info, and project details.</p>
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">2</div>
+            <div class="step-details">
+              <h5>Google Sheets (Create Row)</h5>
+              <p>The system pushes this data into a master spreadsheet. It eliminates manual data entry and keeps the client roster clean and organized.</p>
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">3</div>
+            <div class="step-details">
+              <h5>Outbound Email (Send Alert)</h5>
+              <p>An automated email alert hits the inbox right away. It guarantees the team can reach out and reply while the lead is still hot.</p>
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">4</div>
+            <div class="step-details">
+              <h5>Slack (Send Channel Message)</h5>
+              <p>A quick summary drops directly into the team Slack channel. Everyone stays in the loop, ensuring zero missed opportunities during busy hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AI-POWERED TASK EXTRACTOR MODAL -->
+<div id="task-modal" class="modal-backdrop" aria-hidden="true">
+  <div class="modal-window">
+    <div class="modal-header">
+      <h3 class="modal-title">The AI-Powered Task Extractor: Automation Pipeline</h3>
+      <button class="modal-close-btn" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="modal-content-grid">
+      <div class="modal-image-col">
+        <img src="task-extractor-pipeline.png" alt="Zapier AI Task Extractor Automation Pipeline Diagram" class="pipeline-diagram-img">
+      </div>
+      <div class="modal-text-col">
+        <h4 class="pipeline-subtitle">The Automation Pipeline</h4>
+        <div class="pipeline-steps">
+          <div class="pipeline-step">
+            <div class="step-num">1</div>
+            <div class="step-details">
+              <h5>Gmail (New Starred Email)</h5>
+              <p>Whenever an important email gets starred, Zapier catches the trigger. This keeps action items from getting buried in endless inbox threads.</p>
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">2</div>
+            <div class="step-details">
+              <h5>Google AI Studio / Gemini (Analyze and Return Data)</h5>
+              <p>The email content is pushed straight to Gemini. The AI reads through the noise, strips out the fluff, and extracts the core action item you actually need to focus on.</p>
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">3</div>
+            <div class="step-details">
+              <h5>Todoist (Create Task)</h5>
+              <p>Zapier takes that clean, summarized action item and drops it directly into your Todoist. Your inbox stays clear, and your task list updates automatically.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AI CONTENT REPURPOSING MODAL -->
+<div id="repurpose-modal" class="modal-backdrop" aria-hidden="true">
+  <div class="modal-window">
+    <div class="modal-header">
+      <h3 class="modal-title">AI Content Repurposing Automation: Automation Pipeline</h3>
+      <button class="modal-close-btn" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="modal-content-grid">
+      <div class="modal-image-col" style="display: flex; flex-direction: column; gap: 1.25rem; overflow-y: auto; max-height: 70vh; justify-content: flex-start;">
+        <img src="repurpose-pipeline-1.png" alt="Zapier Content Repurposing Pipeline Part 1" class="pipeline-diagram-img">
+        <img src="repurpose-pipeline-2.png" alt="Zapier Content Repurposing Pipeline Part 2" class="pipeline-diagram-img">
+      </div>
+      <div class="modal-text-col">
+        <h4 class="pipeline-subtitle">The Automation Pipeline</h4>
+        <div class="pipeline-steps">
+          <div class="pipeline-step">
+            <div class="step-num">1</div>
+            <div class="step-details">
+              <h5>Google Drive (Catch New Media)</h5>
+              <p>Drop a raw audio or video file into the designated folder. Zapier instantly picks it up to start the engine.</p>
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">2</div>
+            <div class="step-details">
+              <h5>Zapier AI (Transcribe & Draft)</h5>
+              <p>The system extracts the transcript from the file. AI takes over, instantly writing full blog posts and matching captions for Instagram and LinkedIn.</p>
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">3</div>
+            <div class="step-details">
+              <h5>Looping & Paths (Route Content)</h5>
+              <p>The workflow splits the AI output into actionable items. It runs everything through your keyword rules to decide exactly how the content should be distributed.</p>
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">4</div>
+            <div class="step-details">
+              <h5>Facebook & LinkedIn (Auto-Publish)</h5>
+              <p>The drafted copy goes live. It pushes the right posts to your social feeds automatically based on the path logic.</p>
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">5</div>
+            <div class="step-details">
+              <h5>Google Sheets (Log Archive)</h5>
+              <p>Every generated post and transcript drops straight into a master spreadsheet. You get a fully organized, searchable content library without any manual copy-pasting.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AUTOCRM MODAL -->
+<div id="autocrm-modal" class="modal-backdrop" aria-hidden="true">
+  <div class="modal-window">
+    <div class="modal-header">
+      <h3 class="modal-title">AutoCRM: Automated Client Pipeline: Automation Pipeline</h3>
+      <button class="modal-close-btn" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="modal-content-grid">
+      <div class="modal-image-col">
+        <img src="autocrm-pipeline.png" alt="Zapier AutoCRM Automation Pipeline Diagram" class="pipeline-diagram-img">
+      </div>
+      <div class="modal-text-col">
+        <h4 class="pipeline-subtitle">The Automation Pipeline</h4>
+        <div class="pipeline-steps">
+          <div class="pipeline-step">
+            <div class="step-num">1</div>
+            <div class="step-details">
+              <h5>Asana (The Kanban Trigger)</h5>
+              <p>The engine monitors the master project board. The moment a client card moves to a new column, Zapier catches the update and routes it into one of five logic paths.</p>
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">2</div>
+            <div class="step-details">
+              <h5>Google Workspace (Automated Onboarding)</h5>
+              <p>When a lead is "Ready to Start," the system provisions their environment. It auto-generates a dedicated Drive folder and drops the tracking subtasks back into Asana.</p>
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">3</div>
+            <div class="step-details">
+              <h5>Delays & Gmail (Smart Chasers)</h5>
+              <p>For "No Response" or "Quoted" clients, the workflow handles follow-ups. It sends initial outreach, pauses, and searches the inbox for a reply. If they ghost, it fires an escalation email.</p>
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">4</div>
+            <div class="step-details">
+              <h5>Zapier AI (Dynamic Welcome)</h5>
+              <p>Once "Approved," AI parses the client's details. It instantly writes a personalized welcome email and attaches an automated onboarding PDF.</p>
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">5</div>
+            <div class="step-details">
+              <h5>Zapier AI (Automated Retention)</h5>
+              <p>When a project hits "Paid and Close," AI reads the purchased service, drafts custom maintenance recommendations, and sends a final offboarding email to keep them engaged.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LEAD ENRICHMENT MODAL -->
+<div id="enrichment-modal" class="modal-backdrop" aria-hidden="true">
+  <div class="modal-window">
+    <div class="modal-header">
+      <h3 class="modal-title">Automated Lead Enrichment & Routing: Automation Pipeline</h3>
+      <button class="modal-close-btn" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="modal-content-grid">
+      <div class="modal-image-col">
+        <img src="lead-enrichment-pipeline.png" alt="Zapier Lead Enrichment Automation Pipeline Diagram" class="pipeline-diagram-img">
+      </div>
+      <div class="modal-text-col">
+        <h4 class="pipeline-subtitle">The Automation Pipeline</h4>
+        <div class="pipeline-steps">
+          <div class="pipeline-step">
+            <div class="step-num">1</div>
+            <div class="step-details">
+              <h5>Youform (Catch the Lead)</h5>
+              <p>The system captures the initial inquiry the moment a local shop submits your contact form.</p>
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">2</div>
+            <div class="step-details">
+              <h5>Formatter & Webhooks (Data Enrichment)</h5>
+              <p>Zapier cleans up the incoming text and uses a GET webhook to instantly pull in external business metrics, gauging the size and potential of the company.</p>
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">3</div>
+            <div class="step-details">
+              <h5>Paths (Smart Routing)</h5>
+              <p>The workflow evaluates the enriched data and automatically splits the lead into a High Priority or Low Priority track based on your specific scoring rules.</p>
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">4</div>
+            <div class="step-details">
+              <h5>High Priority (Log, Alert, & AI Pitch)</h5>
+              <p>If the shop fits your target profile, the system logs the lead into a Google Sheet database and pings the team in Slack. Then, it uses AI to draft and send a highly personalized outreach pitch directly to the owner.</p>
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="step-num">5</div>
+            <div class="step-details">
+              <h5>Low Priority (Standard Sequence)</h5>
+              <p>If the inquiry is from a smaller shop that doesn't meet the target metrics, the system automatically routes them to a standard email sequence, ensuring a professional response without burning your manual resources.</p>
             </div>
           </div>
         </div>
