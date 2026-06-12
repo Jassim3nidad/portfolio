@@ -2,6 +2,11 @@ class PortfolioApp {
   constructor() {
     this.dom = new DOMHelper();
     this.controllers = [
+      new MobileMenuController({ dom: this.dom }),
+      new ThemeController({ dom: this.dom }),
+      new LaserPointerController({ dom: this.dom }),
+      new CardGlowController({ dom: this.dom }),
+      new TypewriterController({ dom: this.dom }),
       new ScrollAnimationController({ dom: this.dom }),
       new ActiveNavigationController({ dom: this.dom }),
       new SplinePerformanceController({ dom: this.dom }),

@@ -35,7 +35,8 @@ class ScrollAnimationController {
     entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
         this.revealElement(entry.target, index);
-        this.observer.unobserve(entry.target);
+      } else {
+        this.hideElement(entry.target);
       }
     });
   }
@@ -44,6 +45,10 @@ class ScrollAnimationController {
     setTimeout(() => {
       element.classList.add(this.visibleClass);
     }, index * this.staggerDelay);
+  }
+
+  hideElement(element) {
+    element.classList.remove(this.visibleClass);
   }
 
   showAllElements() {

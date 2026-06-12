@@ -2,7 +2,8 @@
 
 Interactive developer portfolio showcasing full-stack web applications, cybersecurity threat detectors, and robust automation pipelines.
 
-Live on GitHub: [https://github.com/Jassim3nidad/portfolio](https://github.com/Jassim3nidad/portfolio)
+Live Website: [https://jassim3nidad.vercel.app](https://jassim3nidad.vercel.app)  
+GitHub Repo: [https://github.com/Jassim3nidad/portfolio](https://github.com/Jassim3nidad/portfolio)
 
 ---
 
@@ -10,8 +11,10 @@ Live on GitHub: [https://github.com/Jassim3nidad/portfolio](https://github.com/J
 
 1. **3D Interactive Hero**: A premium, modern hero section powered by a Spline 3D interactive viewer.
 2. **Interactive Developer Terminal Shell**: A simulated mock console in the About section where visitors can type commands (e.g., `help`, `skills`, `projects`, `contact`) to retrieve styled JSON/text outputs directly.
-3. **Smooth Category Project Filters**: Interactive categories toggle bar (`All Projects`, `Full-Stack`, `Cybersecurity`, `Automation`) allowing quick filtering with smooth CSS layout animations.
-4. **No-Show Killer Automation Pipeline Modal**: Clicking "View Pipeline" on the featured project triggers a blurred-backdrop modal detailing the live Zapier automation pipeline integrations (Google Calendar, Gmail API, Semaphore PH SMS API, and Webhooks).
+3. **Dynamic Theme Switching**: Seamlessly toggle between a premium Dark Mode and a crisp Light Mode.
+4. **Laser Trailing Pointer**: A fluid, interactive mouse-following laser with a dynamic trailing shadow particle effect in the hero section.
+5. **Smooth Category Project Filters**: Interactive categories toggle bar (`All Projects`, `Full-Stack`, `Cybersecurity`, `Automation`) allowing quick filtering with smooth CSS layout animations.
+6. **No-Show Killer Automation Pipeline Modal**: Clicking "View Pipeline" on the featured project triggers a blurred-backdrop modal detailing the live Zapier automation pipeline integrations (Google Calendar, Gmail API, Semaphore PH SMS API, and Webhooks).
 
 ---
 

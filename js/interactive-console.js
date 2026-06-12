@@ -11,6 +11,9 @@ class InteractiveConsole {
   skills   - List my full-stack skills
   projects - View featured projects
   contact  - Get my contact links
+  whoami   - Display current user
+  sudo     - Execute a command as superuser
+  matrix   - Initialize the Matrix protocol
   clear    - Clear the terminal screen`,
       about: () => `I'm Jassim Eman M. Trinidad, a BS Computer Science student majoring in Software Engineering at LPU Cavite. I specialize in full-stack development, cybersecurity, and automation.`,
       skills: () => `[Frontend]
@@ -32,8 +35,65 @@ GitHub   : github.com/Jassim3nidad`,
       clear: () => {
         this.output.innerHTML = '';
         return '';
+      },
+      whoami: () => `guest@jassim-portfolio-v1`,
+      sudo: () => `jassim is not in the sudoers file. This incident will be reported.`,
+      matrix: () => {
+        this.triggerMatrix();
+        return `Wake up, Neo...`;
       }
     };
+  }
+
+  triggerMatrix() {
+    let canvas = document.getElementById('matrix-canvas');
+    if (!canvas) {
+      canvas = document.createElement('canvas');
+      canvas.id = 'matrix-canvas';
+      canvas.style.position = 'fixed';
+      canvas.style.top = '0';
+      canvas.style.left = '0';
+      canvas.style.width = '100vw';
+      canvas.style.height = '100vh';
+      canvas.style.zIndex = '9999';
+      canvas.style.pointerEvents = 'none';
+      canvas.style.opacity = '0.7';
+      document.body.appendChild(canvas);
+
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*';
+      const fontSize = 16;
+      const columns = canvas.width / fontSize;
+      const drops = [];
+      for (let x = 0; x < columns; x++) drops[x] = 1;
+
+      const draw = () => {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#0F0';
+        ctx.font = fontSize + 'px monospace';
+
+        for (let i = 0; i < drops.length; i++) {
+          const text = letters.charAt(Math.floor(Math.random() * letters.length));
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+          if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+          drops[i]++;
+        }
+      };
+
+      const interval = setInterval(draw, 33);
+
+      // Stop after 5 seconds
+      setTimeout(() => {
+        clearInterval(interval);
+        canvas.style.transition = 'opacity 2s';
+        canvas.style.opacity = '0';
+        setTimeout(() => canvas.remove(), 2000);
+      }, 5000);
+    }
   }
 
   init() {
@@ -59,10 +119,13 @@ GitHub   : github.com/Jassim3nidad`,
   handleCommand(cmdString) {
     if (!cmdString) return;
 
-    const lowerCmd = cmdString.toLowerCase();
+    const parts = cmdString.split(' ');
+    const lowerCmd = parts[0].toLowerCase();
     this.printLine(`jassim@developer:~$ ${cmdString}`, 'prompt-line');
 
-    if (this.commands[lowerCmd]) {
+    if (lowerCmd === 'sudo') {
+      this.printLine(this.commands.sudo(), 'error-line');
+    } else if (this.commands[lowerCmd]) {
       const result = this.commands[lowerCmd]();
       if (result) {
         this.printLine(result);
